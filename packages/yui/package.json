@@ -1,0 +1,26 @@
+{
+    "name": "yui",
+    "version": "0.0.0",
+    "description": "yui",
+    "main": "index.js",
+    "module": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/npm-uis/yui.git",
+        "directory": "packages/yui"
+    },
+    "keywords": [
+        "yui",
+        "toast"
+    ],
+    "author": "yanxianping",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/npm-uis/yui/issues"
+    },
+    "homepage": "https://github.com/npm-uis/yui/tree/main/packages/yui",
+    "dependencies": {
+        "@npm-yui/toast": "0.0.0",
+        "@npm-yui/switch": "0.0.0"
+    }
+}

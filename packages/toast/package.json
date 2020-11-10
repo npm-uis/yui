@@ -1,0 +1,22 @@
+{
+    "name": "@npm-yui/toast",
+    "version": "0.0.0",
+    "description": "@npm-yui/toast",
+    "main": "index.js",
+    "module": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/npm-uis/yui.git",
+        "directory": "packages/toast"
+    },
+    "keywords": [
+        "yui",
+        "toast"
+    ],
+    "author": "yanxianping",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/npm-uis/yui/issues"
+    },
+    "homepage": "https://github.com/npm-uis/yui/tree/main/packages/toast"
+}

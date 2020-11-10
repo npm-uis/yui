@@ -1,0 +1,36 @@
+{
+    "private": true,
+    "version": "0.0.0",
+    "workspaces": [
+        "packages/*"
+    ],
+    "description": "mobile UI framework based on Vue2.x",
+    "repository": "https://github.com/npm-uis/yui.git",
+    "author": "2378149796@qq.com",
+    "license": "MIT",
+    "scripts": {
+        "dev": "node scripts/dev.js",
+        "build": "node scripts/build.js",
+        "ls-lint": "ls-lint"
+    },
+    "sideEffects": false,
+    "husky": {
+        "hooks": {
+            "pre-commit": "ls-lint",
+            "commit-msg": "node scripts/verifyCommit.js"
+        }
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/polyfill": "^7.12.1",
+        "@babel/preset-env": "^7.12.1",
+        "@ls-lint/ls-lint": "^1.9.2",
+        "babel-loader": "^8.1.0",
+        "chalk": "^4.1.0",
+        "html-webpack-plugin": "^4.5.0",
+        "husky": "^4.3.0",
+        "minimist": "^1.2.5",
+        "webpack": "^5.4.0",
+        "webpack-dev-server": "^3.11.0"
+    }
+}

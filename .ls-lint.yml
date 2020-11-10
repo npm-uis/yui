@@ -1,0 +1,3 @@
+ls:
+  packages/*/:
+    .dir: lowercase

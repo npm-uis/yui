@@ -1,0 +1,22 @@
+{
+    "name": "@npm-yui/switch",
+    "version": "0.0.0",
+    "description": "@npm-yui/switch",
+    "main": "index.js",
+    "module": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/npm-uis/yui.git",
+        "directory": "packages/switch"
+    },
+    "keywords": [
+        "yui",
+        "switch"
+    ],
+    "author": "yanxianping",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/npm-uis/yui/issues"
+    },
+    "homepage": "https://github.com/npm-uis/yui/tree/main/packages/switch"
+}
