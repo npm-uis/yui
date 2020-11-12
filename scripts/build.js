@@ -13,6 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const argv = require('minimist')(process.argv.slice(2));
+const chalk = require('chalk');
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // (start) : 主要逻辑
@@ -23,10 +24,11 @@ const compiler = webpack(webpackConfig);
 
 compiler.run((err, stats) => {
     if (err || stats.hasErrors()) {
-        // TODO 错误处理
+        console.error(`${chalk.bgRed.white('[ERROR]:')}${chalk.red(err)}\n`);
+        console.error(`${chalk.bgRed.white('[STATS]:')}${chalk.red(stats)}`);
         return;
     }
-    console.log('build success')
+    console.log(`${chalk.bgGreen.white('[SUCCESS]:')}${chalk.green(' the package you specified is built successfully ~ ~ ~')}`)
 });
 // (end)
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -53,9 +55,16 @@ function cleanPkgDist() {
         });
         return false;
     }
-    // delete specific package/dist
-    if (argv['package']) {
-        let pkgDistPath = path.resolve(packagesPath, argv['package'], 'dist');
+    // delete specific package/
+    let specificPkg = '';
+    argv['_'].some(item => {
+        if (/^pkg-/.test(item)) {
+            specificPkg = item.split('-')[1];
+            return true;
+        }
+    });
+    if (specificPkg) {
+        let pkgDistPath = path.resolve(packagesPath, specificPkg, 'dist');
         deleteFolder(pkgDistPath);
         return false;
     }

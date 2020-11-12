@@ -1,23 +1,14 @@
-const path = require('path');
+const express = require('express');
 const webpack = require('webpack');
-const webpackDevServer = require('webpack-dev-server');
-
+const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack/webpack.config.dev');
-const webpackDevServerConfig = {
-    contentBase: path.resolve(process.cwd(), 'packages'),
-    hot: true
-};
+const chalk = require('chalk');
 
-webpackDevServer.addDevServerEntrypoints(webpackConfig, webpackDevServerConfig);
-const compiler = webpack(webpackConfig);
-const server = new webpackDevServer(compiler, webpackDevServerConfig);
-server.listen(4000, 'localhost', () => {
-    console.log('dev server listening on port 4000')
+const app = express();
+const compiler = webpack({...webpackConfig});
+app.use(webpackDevMiddleware(compiler, {
+    // webpack-dev-middleware options
+}));
+app.listen(4000, () => {
+    console.log(`${chalk.bgGreen('[DEV]:')}${chalk.green('dev app is running at http://localhost:4000')}`);
 });
-
-
-// compiler.run((err, stats) => {
-//     if (err || stats.hasErrors()) {
-//         // TODO 错误处理
-//     }
-// });

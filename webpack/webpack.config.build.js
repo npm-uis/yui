@@ -6,10 +6,23 @@
  */
 const path = require('path');
 const argv = require('minimist')(process.argv.slice(2));
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+/**-----------------------------------------------
+ *                 webpack entry
+ *----------------------------------------------*/
 const getWebpackEntry = require('./utils/getWebpackEntry');
+/**-----------------------------------------------
+ *                    css分离
+ *  MiniCssExtractPlugin default publicPath is webpackOptions.output.publicPath
+ *----------------------------------------------*/
+// const extractCss = new ExtractTextPlugin(`packages/[name]/dist/[name].css.css`);
+const extractScss = new MiniCssExtractPlugin({filename: `[name]/dist/[name].scss.css`});
+// const extractSass = new ExtractTextPlugin(`packages/[name]/dist/[name].sass.css`);
+// const extractLess = new ExtractTextPlugin(`packages/[name]/dist/[name].less.css`);
+// const extractStylus = new ExtractTextPlugin(`packages/[name]/dist/[name].stylus.css`);
 
-const webpackConfigDev = {
+const webpackConfigBuild = {
     mode: 'production',
     entry: getWebpackEntry(),
     output: {
@@ -21,12 +34,77 @@ const webpackConfigDev = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            }
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
+                test: /\.js?$/,
+                loader: 'babel-loader',
+                // 解决从node_modules内导入Vue单文件组件，它的<script>部分在转义时会被排出在外的问题
+                exclude: file => (/node_modules/.test(file) && !/\.vue\.js/.test(file))
+            },
+            // {
+            //     test: /\.css$/,
+            //     use: extractCss.extract(
+            //         [
+            //             'vue-style-loader',
+            //             'css-loader'
+            //         ]
+            //     )
+            // },
+            {
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            // {
+            //     test: /\.sass$/,
+            //     use: extractCss.extract(
+            //         [
+            //             'vue-style-loader',
+            //             'css-loader',
+            //             {
+            //                 loader: 'sass-loader',
+            //                 options: {
+            //                     indentedSyntax: true,
+            //                     // sass-loader version >= 8
+            //                     sassOptions: {
+            //                         indentedSyntax: true
+            //                     }
+            //                 }
+            //             }
+            //         ]
+            //     )
+            // },
+            // {
+            //     test: /\.less$/,
+            //     use: extractCss.extract(
+            //         [
+            //             'vue-style-loader',
+            //             'css-loader',
+            //             'less-loader'
+            //         ]
+            //     )
+            // },
+            // {
+            //     test: /\.styl(us)?$/,
+            //     use: extractCss.extract(
+            //         [
+            //             'vue-style-loader',
+            //             'css-loader',
+            //             'stylus-loader'
+            //         ]
+            //     )
+            // }
         ]
     },
-    plugins: []
+    plugins: [
+        extractScss,
+        new VueLoaderPlugin()
+    ],
 };
-module.exports = webpackConfigDev;
+
+module.exports = webpackConfigBuild;

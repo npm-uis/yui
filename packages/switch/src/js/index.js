@@ -1,2 +1,8 @@
-let Switch = {};
-export default Switch;
+export default {
+    name: 'ySwitch',
+    data() {
+        return {
+            index: 123
+        }
+    }
+}
