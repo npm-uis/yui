@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 /**-----------------------------------------------
@@ -11,9 +12,9 @@ const webpackConfigDev = {
     entry: getWebpackEntry(true),
     output: {
         path: path.resolve(process.cwd(), 'packages/'),
-        filename: `[name]/dist/[name].js`,
+        filename: `[name]/dev/[name].js`,
         libraryTarget: 'umd',
-        library: ['Yui[name]']
+        library: ['Yui']
     },
     module: {
         rules: [
@@ -43,7 +44,8 @@ const webpackConfigDev = {
             favicon: path.resolve(process.cwd(), 'favicon.ico'),
             chunks: ['yui']
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devtool: 'inline-source-map'
 };

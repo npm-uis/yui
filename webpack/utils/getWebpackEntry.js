@@ -10,15 +10,7 @@ const getWebpackEntry = (dev = false) => {
     let entry = {};
     let packagesPath = path.resolve(process.cwd(), 'packages');
     if (dev) {
-        let files = fs.readdirSync(packagesPath);
-        for (let i = 0; i < files.length; i++) {
-            let item = files[i];
-            let packagePath = path.resolve(packagesPath, item);
-            let fileStat = fs.statSync(packagePath);
-            if (fileStat.isDirectory()) {
-                entry[item] = path.resolve(packagePath, 'index')
-            }
-        }
+        entry['yui'] = ['webpack-hot-middleware/client', path.resolve(packagesPath, 'yui/index')];
         return entry;
     } else {
         // only build package/yui

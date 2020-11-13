@@ -8,7 +8,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 
 const commitMsg = fs.readFileSync(process.env.HUSKY_GIT_PARAMS, 'utf-8').trim();
-const commitRegExp = /^(revert: )?(feat|fix|docs|style|test|perf|refactor|ci|chore|wip|build|release)(\(.+\))?: .{1,60}/;
+const commitRegExp = /^(revert: )?(feat|fix|docs|style|test|perf|refactor|ci|chore|wip|dev|build|release)(\(.+\))?: .{1,60}/;
 
 if (!commitRegExp.test(commitMsg)) {
     console.error(`
