@@ -1,3 +1,31 @@
 .y-switch {
-    background-color: yellow;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 2px;
+    width: 40px;
+    height: 20px;
+    border-radius: 50vh;
+    transition: background-color linear 200ms;
+    overflow: hidden;
+
+    &-slider {
+        position: absolute;
+        top: 2px;
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        background-color: #fff;
+        transition: all linear 200ms;
+
+        &-active {
+            left: 100%;
+            margin-left: -18px;
+        }
+
+        &-inactive {
+            left: 2px;
+        }
+    }
 }
