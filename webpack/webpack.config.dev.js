@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const {VueLoaderPlugin} = require('vue-loader-v16');
 /**-----------------------------------------------
  *                 webpack entry
  *----------------------------------------------*/
@@ -11,16 +11,24 @@ const webpackConfigDev = {
     mode: 'development',
     entry: getWebpackEntry(true),
     output: {
-        path: path.resolve(process.cwd(), 'packages/'),
-        filename: `[name]/dev/[name].js`,
+        path: path.resolve(process.cwd(), 'app/'),
+        filename: `dist/[name].js`,
         libraryTarget: 'umd',
-        library: ['Yui']
+        library: ['app']
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            '@': path.resolve(process.cwd(), 'app')
+        },
+        modules: ['node_modules']
     },
     module: {
+        noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                use: ['cache-loader', 'vue-loader-v16'],
             },
             {
                 test: /\.js?$/,
@@ -35,14 +43,22 @@ const webpackConfigDev = {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpe?g)$/i,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
-            favicon: path.resolve(process.cwd(), 'favicon.ico'),
-            chunks: ['yui']
+            template: 'app/public/index.html',
+            favicon: path.resolve(process.cwd(), 'app/public/favicon.ico'),
+            chunks: ['app']
         }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin()

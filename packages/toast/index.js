@@ -6,9 +6,9 @@
  */
 import Toast from './src/js/index';
 
-Toast.install = (Vue) => {
+Toast.install = (app) => {
     // 添加实例方法
-    Vue.prototype[Toast.name] = Toast;
+    app.config.globalProperties[Toast.name] = Toast;
 };
 
 export {Toast} ;

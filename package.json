@@ -19,15 +19,21 @@
             "commit-msg": "node scripts/verifyCommit.js"
         }
     },
+    "dependencies": {
+        "core-js": "^3.7.0",
+        "vue": "3.0.0"
+    },
     "devDependencies": {
         "@babel/core": "^7.12.3",
         "@babel/polyfill": "^7.12.1",
         "@babel/preset-env": "^7.12.1",
         "@ls-lint/ls-lint": "^1.9.2",
+        "@vue/compiler-sfc": "^3.0.2",
         "babel-loader": "^8.1.0",
+        "cache-loader": "^4.1.0",
         "chalk": "^4.1.0",
         "css-loader": "^5.0.1",
-        "express": "^4.17.1",
+        "file-loader": "^6.2.0",
         "html-webpack-plugin": "^4.5.0",
         "husky": "^4.3.0",
         "mini-css-extract-plugin": "^1.3.0",
@@ -35,11 +41,9 @@
         "node-sass": "^5.0.0",
         "sass-loader": "^10.0.5",
         "style-loader": "^2.0.0",
-        "vue": "^2.6.12",
-        "vue-loader": "^15.9.5",
-        "vue-template-compiler": "^2.6.12",
+        "vue-loader-v16": "npm:vue-loader@v16.0.0-rc.1",
         "webpack": "^5.4.0",
-        "webpack-dev-middleware": "^4.0.2",
+        "webpack-dev-server": "^3.11.0",
         "webpack-hot-middleware": "^2.25.0"
     }
 }

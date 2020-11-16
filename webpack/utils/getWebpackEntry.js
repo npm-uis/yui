@@ -8,11 +8,12 @@ const argv = require('minimist')(process.argv.slice(2));
  */
 const getWebpackEntry = (dev = false) => {
     let entry = {};
-    let packagesPath = path.resolve(process.cwd(), 'packages');
     if (dev) {
-        entry['yui'] = ['webpack-hot-middleware/client', path.resolve(packagesPath, 'yui/index')];
+        let packagesPath = path.resolve(process.cwd(), 'app');
+        entry['app'] = path.resolve(packagesPath, 'index');
         return entry;
     } else {
+        let packagesPath = path.resolve(process.cwd(), 'packages');
         // only build package/yui
         if (argv['_'].indexOf('yui') >= 0) {
             entry['yui'] = path.resolve(packagesPath, 'yui/index');

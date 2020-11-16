@@ -16,26 +16,9 @@
         }
     </style>
 </head>
-
 <body>
-<div id="app">
-    this is Yui APP
-    <div @click="showToast">show toast</div>
-    <y-switch></y-switch>
-</div>
+<!-- this 'app' will be replaced by ./app.vue -->
+<div id="app"></div>
 </body>
-<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script>
-    Vue.use(Yuiyui.Switch);
-
-    var vm = new Vue({
-        el: '#app',
-        methods: {
-            showToast() {
-                this.$yToast.success(123, true)
-
-            }
-        }
-    });
-</script>
 </html>
+

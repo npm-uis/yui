@@ -1,18 +1,20 @@
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('../webpack/webpack.config.dev');
 const chalk = require('chalk');
+const path = require('path');
+const webpack = require('webpack');
+const webpackDevServer = require('webpack-dev-server');
+const webpackConfig = require('../webpack/webpack.config.dev');
 
-const app = express();
 const compiler = webpack({...webpackConfig});
-app.use(webpackDevMiddleware(compiler, {
-    // webpack-dev-middleware options
-}));
-app.use(webpackHotMiddleware(compiler, {
-    // webpack-hot-middleware options
-}));
-app.listen(4000, () => {
+// devServerConfig
+const devServerConfig = Object.assign({}, webpackConfig.devServer, {
+    port: '4000',
+    // // webpack will add 'webpack.HotModuleReplacementPlugin' automatically.
+    hot: true,
+    contentBase: path.resolve(process.cwd(), 'app/public'),
+    watchContentBase: true
+
+});
+const app = new webpackDevServer(compiler, devServerConfig);
+app.listen(devServerConfig.port, () => {
     console.log(`${chalk.bgGreen('[DEV]:')}${chalk.green('dev app is running at http://localhost:4000')}`);
 });

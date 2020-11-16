@@ -6,9 +6,9 @@
  */
 import Switch from './src/index.vue';
 
-Switch.install = (Vue) => {
+Switch.install = (app) => {
     // 注册全局组件
-    Vue.component(Switch.name, Switch);
+    app.component(Switch.name, Switch);
 };
 
 export {Switch};
