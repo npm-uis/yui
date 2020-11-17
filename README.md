@@ -4,10 +4,10 @@
 
 <p align="center">Yui - A Vue.js 3.0 UI library for Mobile</p>
 
-- <span style="color:green;font-weight:bold">^_^</span>  Vue 3.0
-- <span style="color:green;font-weight:bold">^_^</span>  TypeScript
+- <span style="color:green;font-weight:bold">^_^💪</span>  Vue 3.0
+- <span style="color:green;font-weight:bold">^_^🔥</span>  TypeScript
 
-<p><span style="display:inline-block;width:100px;text-align:center;color:white;border-radius:0.5em;background:red">doing</span> This project is still under heavy development. Yuo can contact me to develop it together.</p>
+<p><span style="display:inline-block;width:100px;text-align:center;color:white;border-radius:0.5em;background:red">[doing]</span> This project is still under heavy development. Yuo can contact me to develop it together.</p>
 
 ------
 
