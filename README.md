@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100px" src="./app/public/favicon.png">
+  <img width="100px" src="http://r.photo.store.qq.com/psc?/V50exb680lHfAt0oXND63S7GyW1Vqocg/45NBuzDIW489QBoVep5mcT9HwDQP55*8XGkV6gnk0BRVppeBALeIemgbDVWuWutWej*PZJehsATJdb9k2IBBwhpD*PDZEubVtvZW*kqmSiM!/r">
 </p>
 
 <p align="center">Yui - A Vue.js 3.0 UI library for Mobile</p>
