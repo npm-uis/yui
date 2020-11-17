@@ -7,7 +7,7 @@
 - <span style="color:green;font-weight:bold">^_^💪</span>  Vue 3.0
 - <span style="color:green;font-weight:bold">^_^🔥</span>  TypeScript
 
-<p><span style="display:inline-block;width:100px;text-align:center;color:white;border-radius:0.5em;background:red">[doing]</span> This project is still under heavy development. Yuo can contact me to develop it together.</p>
+<p><img src="https://img.shields.io/badge/-doing-red"> This project is still under heavy development. Yuo can contact me to develop it together.</p>
 
 ------
 
