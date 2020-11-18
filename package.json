@@ -4,7 +4,7 @@
     "workspaces": [
         "packages/*"
     ],
-    "description": "mobile UI framework based on Vue2.x",
+    "description": "Yui - A Vue.js 3.0 UI library for Mobile",
     "repository": "https://github.com/npm-uis/yui.git",
     "author": "2378149796@qq.com",
     "license": "MIT",
@@ -20,8 +20,10 @@
         }
     },
     "dependencies": {
-        "core-js": "^3.7.0",
-        "vue": "3.0.0"
+        "core-js": "^3.7.0"
+    },
+    "peerDependencies": {
+        "vue": "^3.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",
