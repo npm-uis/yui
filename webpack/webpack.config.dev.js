@@ -17,7 +17,7 @@ const webpackConfigDev = {
         library: ['app']
     },
     resolve: {
-        extensions: ['.js', '.vue', '.json'],
+        extensions: ['.ts', '.js', '.vue', '.json'],
         alias: {
             '@': path.resolve(process.cwd(), 'app')
         },
@@ -31,7 +31,7 @@ const webpackConfigDev = {
                 use: ['cache-loader', 'vue-loader-v16'],
             },
             {
-                test: /\.js?$/,
+                test: /\.(ts|js)x?$/,
                 loader: 'babel-loader',
                 // 解决从node_modules内导入Vue单文件组件，它的<script>部分在转义时会被排出在外的问题
                 exclude: file => (/node_modules/.test(file) && !/\.vue\.js/.test(file))

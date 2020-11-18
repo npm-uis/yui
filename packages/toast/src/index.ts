@@ -1,10 +1,12 @@
-/**
- * 创建toast
- * @param level <string> 'success' | 'warn' | 'danger' | 'info'
- * @param msg <string> 提示文案
- * @param mask <boolean> 是否展示蒙层
- */
-function initToast(level, msg, mask) {
+enum ToastLevel {
+    success = 'success',
+    warn = 'warn',
+    danger = 'danger',
+    info = 'info'
+}
+
+/** 创建toast */
+function initToast(level: ToastLevel, msg: string, mask: boolean) {
     const colorMap = {
         success: '#67c23a',
         warn: '#e6a23c',
@@ -56,56 +58,35 @@ function initToast(level, msg, mask) {
     }, 2500)
 }
 
-/**
- * 设置dom节点样式
- * @param node {HTMLElement}
- * @param css {Object}
- * @return {HTMLElement}
- */
-function setCss(node, css) {
+/** 设置dom节点样式 */
+function setCss(node: HTMLElement, css: Object) {
     for (let key in css) {
         node.style[key] = css[key];
     }
     return node
 }
 
-let Toast = {
-    name: '$yToast',
+const Toast = {
+    name: 'YToast',
 
-    /**
-     * 成功提示
-     * @param msg <string> 提示信息
-     * @param mask <boolean> 是否展示mask
-     */
-    success(msg = '', mask = false) {
-        initToast('success', msg, mask);
+    /** 成功提示 */
+    success(msg: string = '', mask: boolean = false): void {
+        initToast(ToastLevel.success, msg, mask);
     },
 
-    /**
-     * 警告提示
-     * @param msg <string> 提示信息
-     * @param mask <boolean> 是否展示mask
-     */
-    warn(msg = '', mask = false) {
-        initToast('warn', msg, mask);
+    /** 警告提示 */
+    warn(msg: string = '', mask: boolean = false): void {
+        initToast(ToastLevel.warn, msg, mask);
     },
 
-    /**
-     * 危险提示
-     * @param msg <string> 提示信息
-     * @param mask <boolean> 是否展示mask
-     */
-    danger(msg = '', mask = false) {
-        initToast('danger', msg, mask);
+    /** 危险提示 */
+    danger(msg: string = '', mask: boolean = false): void {
+        initToast(ToastLevel.danger, msg, mask);
     },
 
-    /**
-     * 普通提示
-     * @param msg <string> 提示信息
-     * @param mask <boolean> 是否展示mask
-     */
-    info(msg = '', mask = false) {
-        initToast('info', msg, mask);
+    /** 普通提示 */
+    info(msg: string = '', mask: boolean = false): void {
+        initToast(ToastLevel.info, msg, mask);
     }
 };
 

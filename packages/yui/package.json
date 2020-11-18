@@ -2,7 +2,7 @@
     "name": "yui",
     "version": "0.0.0",
     "description": "Yui - A Vue.js 3.0 UI library for Mobile",
-    "main": "index.js",
+    "main": "index.ts",
     "module": "dist/index.js",
     "repository": {
         "type": "git",
@@ -19,7 +19,10 @@
     },
     "homepage": "https://github.com/npm-uis/yui/tree/main/packages/yui",
     "dependencies": {
-        "@npm-yui/toast": "^0.0.0",
-        "@npm-yui/switch": "^0.0.0"
+        "@npm-yui/switch": "^0.0.0",
+        "@npm-yui/toast": "^0.0.0"
+    },
+    "peerDependencies": {
+        "vue": "3.0.0"
     }
 }

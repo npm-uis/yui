@@ -1,7 +1,7 @@
 <template>
     <img class="yui-log" src="./public/favicon.png" alt="Yui logo">
     <h1 class="">Welcome to Yui</h1>
-    <p>The more Yui components is building, here is <span class="code">this.$yToast</span> demo</p>
+    <p>The more Yui components is building, here is <span class="code">this.YToast</span> demo</p>
     <ul class="toast-ul">
         <li class="toast success" @click="toast('success')">success</li>
         <li class="toast warn" @click="toast('warn')">warn</li>
@@ -9,15 +9,17 @@
         <li class="toast info" @click="toast('info')">info</li>
     </ul>
 </template>
-<script>
-    export default {
+<script lang="ts">
+    import {defineComponent} from 'vue';
+
+    export default defineComponent({
         name: 'App',
         methods: {
             toast(level) {
-                this.$yToast[level](level);
+                this.YToast[level](level);
             }
         }
-    }
+    })
 </script>
 <style lang="scss">
     #app {

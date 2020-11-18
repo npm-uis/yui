@@ -19,16 +19,20 @@
             "commit-msg": "node scripts/verifyCommit.js"
         }
     },
+    "files": [
+        "lib",
+        "types",
+        "packages"
+    ],
     "dependencies": {
-        "core-js": "^3.7.0"
-    },
-    "peerDependencies": {
-        "vue": "^3.0.0"
+        "@babel/polyfill": "^7.12.1",
+        "core-js": "^3.7.0",
+        "vue": "3.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",
-        "@babel/polyfill": "^7.12.1",
         "@babel/preset-env": "^7.12.1",
+        "@babel/preset-typescript": "^7.12.1",
         "@ls-lint/ls-lint": "^1.9.2",
         "@vue/compiler-sfc": "^3.0.2",
         "babel-loader": "^8.1.0",
@@ -43,6 +47,7 @@
         "node-sass": "^5.0.0",
         "sass-loader": "^10.0.5",
         "style-loader": "^2.0.0",
+        "typescript": "^4.0.5",
         "vue-loader-v16": "npm:vue-loader@v16.0.0-rc.1",
         "webpack": "^5.4.0",
         "webpack-dev-server": "^3.11.0",

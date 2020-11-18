@@ -2,7 +2,7 @@
     "name": "@npm-yui/switch",
     "version": "0.0.0",
     "description": "@npm-yui/switch",
-    "main": "index.js",
+    "main": "index.ts",
     "module": "dist/index.js",
     "repository": {
         "type": "git",
@@ -18,5 +18,8 @@
     "bugs": {
         "url": "https://github.com/npm-uis/yui/issues"
     },
-    "homepage": "https://github.com/npm-uis/yui/tree/main/packages/switch"
+    "homepage": "https://github.com/npm-uis/yui/tree/main/packages/switch",
+    "peerDependencies": {
+        "vue": "3.0.0"
+    }
 }
